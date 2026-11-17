@@ -1,0 +1,69 @@
+{
+  "traffic": {
+    "totalVisits": 142,
+    "uniqueVisitors": 108,
+    "checkoutOpens": 19,
+    "sources": {
+      "Recherche Google (SEO)": 58,
+      "TikTok / Reels Bio": 41,
+      "LinkedIn Organique": 27,
+      "Direct / Lien Bio": 16
+    }
+  },
+  "bank": {
+    "accountHolder": "Compte Propriétaire NovaPack IA",
+    "iban": "FR76 3000 4000 0500 0098 7654 321",
+    "stripeSecretKey": "",
+    "transferredToBank": 124.9
+  },
+  "orders": [
+    {
+      "id": "ORD-904",
+      "productId": "bundle-empire",
+      "productTitle": "Bundle Intégral Empire Digital IA",
+      "amount": 79,
+      "netAmount": 77.56,
+      "customerName": "Lucas Bernard",
+      "customerEmail": "lucas.bernard@atelier-digital.fr",
+      "createdAt": "2026-11-17T19:41:40.070Z"
+    },
+    {
+      "id": "ORD-903",
+      "productId": "pack-contenu",
+      "productTitle": "Usine à Contenu Réseaux & SEO IA",
+      "amount": 49,
+      "netAmount": 48.02,
+      "customerName": "Sarah Mansouri",
+      "customerEmail": "sarah.m@studio-creatif.com",
+      "createdAt": "2026-11-17T21:16:40.070Z"
+    },
+    {
+      "id": "ORD-902",
+      "productId": "bundle-empire",
+      "productTitle": "Bundle Intégral Empire Digital IA",
+      "amount": 79,
+      "netAmount": 77.56,
+      "customerName": "Julien Morel",
+      "customerEmail": "j.morel@conseil-b2b.fr",
+      "createdAt": "2026-11-17T22:09:40.070Z"
+    },
+    {
+      "id": "ORD-901",
+      "productId": "pack-prospection",
+      "productTitle": "Système Prospection & Vente IA",
+      "amount": 39,
+      "netAmount": 38.16,
+      "customerName": "Claire Dupuis",
+      "customerEmail": "claire@agence-horizon.fr",
+      "createdAt": "2026-11-17T22:37:40.070Z"
+    }
+  ],
+  "payouts": [
+    {
+      "id": "PAY-101",
+      "amount": 124.9,
+      "iban": "FR76 3000 4000 0500 0098 7654 321",
+      "date": "2026-11-17T21:31:40.070Z"
+    }
+  ]
+}

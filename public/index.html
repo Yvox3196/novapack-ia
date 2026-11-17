@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaPack IA — Systèmes & Packs d'Automatisation IA Clés en Main</title>
+  <meta name="description" content="Automatisez votre acquisition client, votre création de contenu et vos ventes grâce à nos packs IA prêts à l'emploi. Livraison immédiate." />
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #111520;
+      --card-hover: #161c2b;
+      --border: #1f293d;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #6366f1;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      background: linear-gradient(90deg, #065f46, #1e1b4b);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #a7f3d0;
+    }
+    header {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+    .logo span { background: linear-gradient(135deg, #10b981, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .btn-outline {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--text); }
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 4.5vw, 3.5rem);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #34d399 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 680px;
+      margin: 0 auto 32px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #04130d;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.25);
+      transition: 0.2s;
+    }
+    .hero-cta:hover { background: #34d399; transform: translateY(-2px); }
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 44px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 26px;
+      align-items: stretch;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: 0.25s;
+    }
+    .card:hover { border-color: #334155; transform: translateY(-4px); }
+    .card.featured {
+      border: 2px solid var(--primary);
+      background: linear-gradient(180deg, rgba(16,185,129,0.08) 0%, var(--card) 100%);
+      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.12);
+    }
+    .popular-tag {
+      position: absolute;
+      top: -13px;
+      right: 24px;
+      background: var(--primary);
+      color: #04130d;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .card h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .card .desc { color: var(--muted); font-size: 0.92rem; margin-bottom: 22px; }
+    .price-box { margin-bottom: 24px; }
+    .price { font-size: 2.6rem; font-weight: 800; }
+    .old-price { color: var(--muted); text-decoration: line-through; font-size: 1.1rem; margin-left: 8px; }
+    .features { list-style: none; margin-bottom: 28px; }
+    .features li {
+      padding: 8px 0;
+      font-size: 0.93rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .features li::before { content: "✓"; color: var(--primary); font-weight: 800; }
+    .buy-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      background: #1e293b;
+      color: var(--text);
+    }
+    .buy-btn:hover { background: #334155; }
+    .card.featured .buy-btn {
+      background: var(--primary);
+      color: #04130d;
+    }
+    .card.featured .buy-btn:hover { background: #34d399; }
+
+    /* Modal Checkout */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.82);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 18px;
+      max-width: 480px;
+      width: 100%;
+      padding: 30px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background: #030712;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .pay-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: #04130d;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .success-box {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 13px 24px;
+      background: var(--primary);
+      color: #04130d;
+      font-weight: 800;
+      border-radius: 10px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 36px 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    ⚡ Offre de lancement : -38 % sur le Bundle Intégral Empire Digital IA • Livraison instantanée 24h/24
+  </div>
+
+  <header>
+    <div class="logo">🚀 <span>NovaPack IA</span></div>
+    <div class="nav-links">
+      <a href="#offres" class="btn-outline">Nos Packs</a>
+      <a href="dashboard.html" class="btn-outline">📊 Tableau de Bord Propriétaire</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="badge">SYSTÈMES D'AUTOMATISATION IA PRÊTS À L'EMPLOI</div>
+    <h1>Générez des clients et du contenu en <em>pilote automatique</em></h1>
+    <p>
+      Téléchargez immédiatement nos systèmes complets de prompts, séquences d'acquisition, scripts viraux et architectures No-Code utilisés par plus de 1 400 entrepreneurs.
+    </p>
+    <a href="#offres" class="hero-cta">Découvrir les Packs Clés en Main →</a>
+    <div class="trust-row">
+      <span>⚡ Téléchargement immédiat après paiement</span>
+      <span>🔒 Paiement 100 % sécurisé via Stripe</span>
+      <span>📈 Rentabilisé dès la 1ère utilisation</span>
+    </div>
+  </section>
+
+  <section id="offres" class="section">
+    <h2 class="section-title">Choisissez votre Système d'Accélération</h2>
+    <p class="section-sub">Paiement unique • Accès à vie • Mises à jour incluses • 0 abonnement caché</p>
+
+    <div class="pricing-grid">
+      <!-- Pack 1 -->
+      <div class="card">
+        <div>
+          <h3>Système Prospection & Vente IA</h3>
+          <p class="desc">Pour freelances, consultants et agences voulant signer des clients B2B automatiquement.</p>
+          <div class="price-box">
+            <span class="price">39 €</span>
+            <span class="old-price">69 €</span>
+          </div>
+          <ul class="features">
+            <li>50+ Prompts d'identification de prospects qualifiés</li>
+            <li>Séquences d'emails à froid (>18 % de taux de réponse)</li>
+            <li>Script de closing en 15 minutes chrono</li>
+            <li>Générateur de réponses aux objections clients</li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="openCheckout('pack-prospection', 'Système Prospection & Vente IA', 39)">
+          Obtenir un accès immédiat (39 €)
+        </button>
+      </div>
+
+      <!-- Pack 3 : Bundle Featured -->
+      <div class="card featured">
+        <div class="popular-tag">Le Plus Rentable • Best-Seller</div>
+        <div>
+          <h3>Bundle Intégral Empire Digital IA</h3>
+          <p class="desc">Le système complet : Prospection B2B + Usine à Contenu Viral + Blueprint d'Automatisation Passive.</p>
+          <div class="price-box">
+            <span class="price">79 €</span>
+            <span class="old-price">129 €</span>
+          </div>
+          <ul class="features">
+            <li><strong>Inclus :</strong> Pack Prospection & Vente IA (valeur 39 €)</li>
+            <li><strong>Inclus :</strong> Usine à Contenu & SEO IA (valeur 49 €)</li>
+            <li><strong>Bonus Exclusif :</strong> Architecture Make/Zapier 100 % autonome</li>
+            <li>Checklist complète pour atteindre 3 000 €/mois sans pub</li>
+            <li>Licence commerciale & mises à jour à vie</li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="openCheckout('bundle-empire', 'Bundle Intégral Empire Digital IA', 79)">
+          Télécharger le Bundle Complet (79 €)
+        </button>
+      </div>
+
+      <!-- Pack 2 -->
+      <div class="card">
+        <div>
+          <h3>Usine à Contenu Réseaux & SEO IA</h3>
+          <p class="desc">Créez 30 jours de vidéos courtes et d'articles Google en moins d'une heure par semaine.</p>
+          <div class="price-box">
+            <span class="price">49 €</span>
+            <span class="old-price">79 €</span>
+          </div>
+          <ul class="features">
+            <li>Matrice de 30 accroches (Hooks) à haute rétention</li>
+            <li>Générateur de scripts TikTok, Reels, Shorts & LinkedIn</li>
+            <li>Système de rédaction d'articles SEO première page Google</li>
+            <li>Calendrier éditorial automatisé (20 min/jour)</li>
+          </ul>
+        </div>
+        <button class="buy-btn" onclick="openCheckout('pack-contenu', 'Usine à Contenu Réseaux & SEO IA', 49)">
+          Obtenir un accès immédiat (49 €)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop" id="checkoutModal">
+    <div class="modal">
+      <button class="close-btn" onclick="closeCheckout()">✕</button>
+      <div id="checkoutFormContainer">
+        <h3 id="modalProductTitle" style="margin-bottom: 6px;">Produit</h3>
+        <p id="modalProductPrice" style="color: var(--primary); font-weight: 800; font-size: 1.3rem; margin-bottom: 20px;">79 € TTC</p>
+
+        <form id="checkoutForm" onsubmit="submitOrder(event)">
+          <input type="hidden" id="productIdInput" />
+          <div class="form-group">
+            <label>Prénom & Nom</label>
+            <input type="text" id="customerName" required placeholder="Ex. Thomas Martin" />
+          </div>
+          <div class="form-group">
+            <label>Email de livraison (pour recevoir votre pack immédiatement)</label>
+            <input type="email" id="customerEmail" required placeholder="vous@exemple.fr" />
+          </div>
+          <div class="form-group">
+            <label>Mode d'encaissement sécurisé</label>
+            <input type="text" value="🔒 Carte Bancaire / Apple Pay (Stripe Checkout)" disabled style="color:#94a3b8;" />
+          </div>
+          <button type="submit" class="pay-submit" id="payBtn">
+            Valider le paiement et télécharger →
+          </button>
+        </form>
+      </div>
+
+      <div class="success-box" id="checkoutSuccess">
+        <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
+        <h3>Paiement confirmé !</h3>
+        <p style="color: var(--muted); font-size: 0.92rem; margin-top: 6px;">
+          Votre commande a été enregistrée et les fonds ont été crédités. Cliquez ci-dessous pour télécharger votre pack immédiatement :
+        </p>
+        <a id="downloadLink" href="#" class="download-btn" target="_blank">📥 Télécharger mon Pack (.md)</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 NovaPack IA — Livraison digitale automatisée 24h/24 • <a href="dashboard.html" style="color:var(--primary);">Accès Propriétaire</a></p>
+  </footer>
+
+  <script src="store-client.js"></script>
+  <script>
+    // Track visitor automatically on page load
+    (function trackVisit() {
+      const ref = document.referrer || 'Direct / Lien Bio';
+      fetch('/api/track-visit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: ref, path: window.location.pathname })
+      }).catch(() => {});
+    })();
+
+    function openCheckout(productId, title, price) {
+      document.getElementById('productIdInput').value = productId;
+      document.getElementById('modalProductTitle').textContent = title;
+      document.getElementById('modalProductPrice').textContent = price + ' € TTC — Accès immédiat';
+      document.getElementById('checkoutFormContainer').style.display = 'block';
+      document.getElementById('checkoutSuccess').style.display = 'none';
+      document.getElementById('checkoutModal').style.display = 'flex';
+      fetch('/api/track-visit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'checkout_open', productId })
+      }).catch(() => {});
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      const btn = document.getElementById('payBtn');
+      btn.disabled = true;
+      btn.textContent = 'Traitement sécurisé en cours...';
+
+      const productId = document.getElementById('productIdInput').value;
+      const customerName = document.getElementById('customerName').value;
+      const customerEmail = document.getElementById('customerEmail').value;
+
+      try {
+        const res = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, customerName, customerEmail })
+        });
+        const data = await res.json();
+        if (data.stripeRedirectUrl) {
+          window.location.href = data.stripeRedirectUrl;
+          return;
+        }
+        if (data.success) {
+          document.getElementById('checkoutFormContainer').style.display = 'none';
+          document.getElementById('checkoutSuccess').style.display = 'block';
+          document.getElementById('downloadLink').href = data.downloadUrl;
+        }
+      } catch (err) {
+        alert('Erreur lors de la validation de la commande.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Valider le paiement et télécharger →';
+      }
+    }
+  </script>
+</body>
+</html>
